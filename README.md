@@ -19,8 +19,8 @@ Codember es organizado por la comunidad de [Midudev](https://midu.dev/), liderad
 A continuación, encontrarás la lista de retos resueltos en este repositorio:
 
 1. **Reto 1**: ¡Consigue acceso a la terminal! - [Solución](./src/challenge1/index.ts)
-2. **Reto 2**: [Descripción breve del reto] - [Solución](./src/challenge2/index.ts)
-3. **Reto 3**: [Descripción breve del reto] - [Solución](./src/challenge3/index.ts)
+2. **Reto 2**: Detectando acceso no deseado - [Solución](./src/challenge2/index.ts)
+3. **Reto 3**: ¡Siguiendo la pista de la IA ΩMEGA! - [Solución](./src/challenge3/index.ts)
 
 ---
 
