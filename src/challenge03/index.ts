@@ -36,9 +36,7 @@ async function main() {
     const currentSteps = countSteps(traces[i]);
     steps += currentSteps;
 
-    if (i == traces.length - 1) {
-      finalTraceSteps = currentSteps;
-    }
+    finalTraceSteps = currentSteps;
   }
 
   console.log(`${steps}-${finalTraceSteps}`);
