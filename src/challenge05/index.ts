@@ -56,6 +56,30 @@ function findConnectedNodes(graph: Map<number, number[]>): number[][] {
   return nodes;
 }
 
+function isPrime(number: number) {
+  let isPrime = true;
+
+  for (let i = 1; i <= number; i++) {
+    if (i != 1 && i != number && number % i == 0) {
+      isPrime = false;
+    }
+  }
+
+  return isPrime;
+}
+
+function isValid(number: number) {
+  const digits = number.toString().split('');
+  const digitsSum = digits.reduce((sum, digit) => sum + Number(digit), 0);
+  return isPrime(number) && isPrime(digitsSum);
+}
+
+function getSafeNodes(nodePairs: string[][]) {
+  const graph = getGraph(nodePairs);
+  const connectedNodes = findConnectedNodes(graph);
+  return connectedNodes.filter((node) => node.length < 3).flat();
+}
+
 async function main() {
   const networkText = await readFile('./src/challenge04/network.txt');
   const nodePairs = networkText
@@ -63,11 +87,10 @@ async function main() {
     .replace(']]', '')
     .split('],[')
     .map((pair) => pair.split(','));
+  const safeNodes = getSafeNodes(nodePairs);
+  const validNumbers: number[] = safeNodes.filter((node) => isValid(node));
 
-  const graph = getGraph(nodePairs);
-  const connectedNodes = findConnectedNodes(graph);
-  const safeNodes = connectedNodes.filter((node) => node.length < 3).flat();
-  console.log(safeNodes.join(','));
+  console.log(`${validNumbers.length}-${validNumbers[2]}`);
 }
 
 main().catch(console.error);

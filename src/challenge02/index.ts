@@ -43,17 +43,8 @@ function validateAttempt(attempt: string) {
 
 async function main() {
   const tests = await readFile('./src/challenge02/log.txt');
-  let valid = 0;
-  let invalid = 0;
-
-  for (const test of tests) {
-    if (validateAttempt(test)) {
-      valid++;
-    } else {
-      invalid++;
-    }
-  }
-
+  const valid = tests.filter((test) => validateAttempt(test)).length;
+  const invalid = tests.length - valid;
   console.log(`${valid}true${invalid}false`);
 }
 

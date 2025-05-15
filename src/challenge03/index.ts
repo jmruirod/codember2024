@@ -19,7 +19,6 @@ function countSteps(instructionsText: string) {
   while (position > -1 && position < instructions.length) {
     const currentInstruction = Number(instructions[position]);
     steps++;
-
     instructions[position] = (currentInstruction + 1).toString();
     position += currentInstruction;
   }
@@ -35,7 +34,6 @@ async function main() {
   for (let i = 0; i < traces.length; i++) {
     const currentSteps = countSteps(traces[i]);
     steps += currentSteps;
-
     finalTraceSteps = currentSteps;
   }
 
